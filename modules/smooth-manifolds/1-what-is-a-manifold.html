@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1. What is a manifold?
+</title>    <link rel="stylesheet" href="/css/modules.css">
+    
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script>
+      MathJax = {
+            tex: {
+                displayMath: [['$$', '$$']],
+                inlineMath: [['$', '$']],
+                macros: {
+                    om: '\\omega',
+                    R: '\\mathbb{R}',
+                    Z: '\\mathbb{Z}',
+                    N: '\\mathbb{N}',
+                    H: '\\mathbb{H}',
+                    empty: '\\emptyset',
+                    id: '\\mathrm{id}',
+                }
+            },
+            svg: {
+                fontCache: 'global'
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    $$
+        \newcommand{\inv}[1]{{#1}^{-1}}
+    $$
+
+</head>
+<body>
+<nav>
+<ul>
+<li><a href="/modules/smooth-manifolds/">Previous</a></li><li><a href="/modules/smooth-manifolds/">Smooth Manifolds</a></li>
+                    <li><a href=/modules/smooth-manifolds/2-formal-definition-of-a-topological-manifold.html>Next</a></li>
+</ul>
+</nav><hr><h1>1. What is a manifold?</h1>
+<p>A <em>manifold</em> is the main object of study of geometers and topologists. Manifolds have a notion of <em>dimension</em>, which is constant across the whole manifold. Informally, we can think of dimension as the number of &ldquo;local degrees of freedom&rdquo; (this particular point of view will be formalised in the notion of a <em>tangent space</em>). Another way of viewing this is that manifolds &ldquo;locally look like&rdquo; patches of $\R^n$. We often call a manifold of dimension $n$ an $n$-manifold. </p>
+<p>For example, $\R^n$ is a manifold of dimension $n$, a torus $T^2$ is a manifold of dimension $2$, a sphere $S^2$ is a manifold of dimension $2$, etc. What other manifolds can you think of?</p>
+<p><img alt="The manifolds $\R^2$, $T^2$, and $S^2$." src="/images/modules/smooth-manifolds/plane-torus-sphere.svg" title="The manifolds $\R^2$, $T^2$, and $S^2$" /></p>
+<p>In a course on surfaces in $\R^3$, all the surfaces that you have seen are examples of manifolds. The difference in this course is that we will be thinking of manifolds as <em>intrinsic</em> objects, rather than as objects that sit inside some ambient space. There are many reasons for doing this, a couple of which are:</p>
+<ol>
+<li>Viewing manifolds intrinsically rather than as a subset of some ambient space helps us figure out which features of a manifold are intrinsic to the manifold or are just an effect of how we have put this manifold into the ambient space.</li>
+<li>In general relativity, we model the universe as a manifold. Since it is impossible for us to leave the universe and view it from &ldquo;outside&rdquo; as sitting in some larger ambient space, we have to develop mathematical tools for dealing with the geometry and topology of manifolds from an intrinsic point of view.</li>
+<li>It doesn&rsquo;t cost us much to deal with manifolds intrinsically.</li>
+<li>A priori, we can&rsquo;t be sure that every manifold can be easily sat inside an ambient space &ndash; this is a theorem that we have to prove.</li>
+</ol>
+<p>Many other examples are provided by physics; for example, the phase space of classical systems form a manifold. We will also see that if a group acts sufficiently nicely on the manifold, then the quotient space is a manifold (think of a torus as $\R^2/\Z^2$, or the circle as $\R/\Z$).</p>
+<p>In this mini-course, we won&rsquo;t be dealing in the generality of a <em>topological manifold</em>; rather, we will be focusing on <em>smooth manifolds</em>. Smooth manifolds are topological manifolds with an extra structure, that allows us to differentiate functions on the manifold. For example, modelling the Earth as a sphere, we could take $t:S^2\to\R$ to be the surface temperature at each point (in Kelvin of course!). Certainly we would like to be able to differentiate such a function.</p>
+<p>After this mini-course you could go in the direction of differential/algebraic topology. Stokes&rsquo;s theorem, which is a general version of the fundamental theorem of calculus and unifies many of the theorems from multivariable calculus (e.g. Green&rsquo;s theorem, the divergence theorem, etc) gives a starting point for building a very powerful topological tool called the <em>de Rham cohomology</em>.</p>
+<p>Alternatively, you could study some introductory Riemannian geometry, where we develop the notions of lengths of curves, area, and (importantly) curvature, culminating in the famous <em>Gauss-Bonnet</em> theorem; this content is a generalisation of, and more similar in spirit to, the material found in a course on surfaces in $\R^3$.</p>
+<h2>Exercises</h2>
+<p>We haven&rsquo;t really covered much, so just think about the below exercises in an informal manner.</p>
+<ol>
+<li>For each of the below, decide if it is a manifold.<ul>
+<li>The letter &ldquo;X&rdquo;. <em>Hint: Consider the centre point of the cross. How many degrees of freedom are there at that point? What about at a point on one of the legs?</em></li>
+<li>A double-cone given as a subset of $\R^3$ by $x^2+y^2=z^2$. <em>Hint: Consider the cone-point.</em></li>
+</ul>
+</li>
+</ol></body>
+</html>

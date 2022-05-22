@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2. The formal definition of a topological manifold
+</title>    <link rel="stylesheet" href="/css/modules.css">
+    
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script>
+      MathJax = {
+            tex: {
+                displayMath: [['$$', '$$']],
+                inlineMath: [['$', '$']],
+                macros: {
+                    om: '\\omega',
+                    R: '\\mathbb{R}',
+                    Z: '\\mathbb{Z}',
+                    N: '\\mathbb{N}',
+                    H: '\\mathbb{H}',
+                    empty: '\\emptyset',
+                    id: '\\mathrm{id}',
+                }
+            },
+            svg: {
+                fontCache: 'global'
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    $$
+        \newcommand{\inv}[1]{{#1}^{-1}}
+    $$
+
+</head>
+<body>
+<nav>
+<ul>
+
+                    <li><a href="/modules/smooth-manifolds/1-what-is-a-manifold.html">Previous</a></li><li><a href="/modules/smooth-manifolds/">Smooth Manifolds</a></li>
+                    <li><a href=/modules/smooth-manifolds/3-transition-functions-and-smooth-structures.html>Next</a></li>
+</ul>
+</nav><hr><h1>2. The formal definition of a topological manifold</h1>
+<p>Let&rsquo;s give the definition of a topological manifold, and then explain it.</p>
+<p><strong>Def:</strong> A <em>topological $n$-manifold</em> is a topological space that is <em>second-countable</em>, <em>Hausdorff</em>, and <em>locally Euclidean of dimension $n$</em>.</p>
+<ol>
+<li><strong>Second-countable:</strong> Feel free to think of this as a topological sanity condition; that is, our space can&rsquo;t get too weird. Specifically, you may recall that a second-countable space is a topological space that has a countable <em>basis</em>. (A <em>basis</em> for a topological space is a collection $\mathcal{B}$ of open sets of your topological space $T$ such that every open set $U$ in the topology can be obtained by a union of some open sets in $\mathcal{B}$. For example, the collection of open intervals form a basis of $\R$ (with the standard topology), and the collection of open balls $B(x,r)$ in $\R^n$ form a basis of $\R^n$ (again with the standard topology).) If you don&rsquo;t understand this point then don&rsquo;t stress about it. We will need this condition for <em>partitions of unity</em>.</li>
+<li><strong>Hausdorff:</strong> This is also a topological sanity condition, and should be familiar to you from a previous course in point-set topology. A topological space $T$ is Hausdorff if for any two distinct elements $x,y\in T$ there are open sets $U,V$ which separate $x$ and $y$, i.e. there are open sets $U,V$ such that $x\in U$, $y\in V$, and $U\cap V=\empty$.</li>
+<li><strong>Locally-Euclidean of dimension $n$:</strong> You may not be familiar with this notion. A topological space $T$ is <em>locally Euclidean of dimension $n$</em> if for every $x\in T$ there is an open set $U$ and a map $\phi:U\to\phi(U)\subset\R^n$ which is a homeomorphism onto its image. That is, locally around every point, the topological space &ldquo;looks like&rdquo; an open subset of $\R^n$.</li>
+</ol>
+<p>Indeed, thinking of manifolds <em>intrinsically</em> naturally leads to this idea. Think of our Earth. Not all of us are privileged enough to be able to get into a rocket and see the Earth as it sits in the universe. Therefore, we have to consider the Earth intrinsically. In order to do this, we (at least before Google maps!) use an atlas. Each page of the atlas is an (open) subset of the plane $\R^2$, and each page maps &ldquo;nicely&rdquo; onto the relevant (open) subset of the surface of the Earth. This analogy gives us useful language:</p>
+<p><img alt="A chart in an atlas representing a section of a manifold." src="/images/modules/smooth-manifolds/earth-atlas.png" /></p>
+<ul>
+<li>We call the pair $(U,\phi)$ of the open set together with its local homeomorphism $\phi:U\to\phi(U)$ a <strong>chart</strong>.</li>
+<li>We call the collection of all charts a <strong>topological atlas</strong> for the manifold.</li>
+</ul>
+<p>Notice that a topological manifold only allows us to define/consider <em>continuous</em> functions on the manifold. In the next section we will look at giving a topological manifold a smooth structure.</p>
+<h2>Exercises</h2>
+<ol>
+<li>Prove that the following are topological manifolds:<ul>
+<li>$\R^n$;</li>
+<li>Any open subset $U$ of $\R^n$;</li>
+<li>Any open subset $U$ of a manifold $X$.</li>
+</ul>
+</li>
+<li>Prove that the graph of $y=x^{2/3}$ in $\R^2$ is a topological manifold.</li>
+<li>Prove that the set of points $(x,y)\in\R^2$ such that $y^2=x^2$ (i.e. the &ldquo;X&rdquo; letter or cross from the previous section) is <em>not</em> a topological manifold.</li>
+</ol></body>
+</html>

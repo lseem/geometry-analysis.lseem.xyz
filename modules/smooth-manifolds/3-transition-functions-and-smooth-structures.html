@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3. Transition functions and smooth structures
+</title>    <link rel="stylesheet" href="/css/modules.css">
+    
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script>
+      MathJax = {
+            tex: {
+                displayMath: [['$$', '$$']],
+                inlineMath: [['$', '$']],
+                macros: {
+                    om: '\\omega',
+                    R: '\\mathbb{R}',
+                    Z: '\\mathbb{Z}',
+                    N: '\\mathbb{N}',
+                    H: '\\mathbb{H}',
+                    empty: '\\emptyset',
+                    id: '\\mathrm{id}',
+                }
+            },
+            svg: {
+                fontCache: 'global'
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    $$
+        \newcommand{\inv}[1]{{#1}^{-1}}
+    $$
+
+</head>
+<body>
+<nav>
+<ul>
+
+                    <li><a href="/modules/smooth-manifolds/2-formal-definition-of-a-topological-manifold.html">Previous</a></li><li><a href="/modules/smooth-manifolds/">Smooth Manifolds</a></li></ul>
+</nav><hr><h1>3. Transition functions and smooth structures</h1>
+<p>In this section we will define what it means for a topological manifold to have a smooth structure. This smooth structure allows us to differentiate functions on the manifold; indeed, it defines <em>what is means</em> for a function on the manifold to be smooth.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The following is a bit of a dead end.</p>
+</div>
+<p>It is worth taking five minutes here to see if you can solve this problem yourself. That is, for a topological manifold $X$, think about how you could define what it means for a function $f:X\to\R$ to be smooth.</p>
+<p>Consider a topological manifold $X$, and let $f:X\to\R$ be continuous. The key here is to consider charts $(U,\phi)$ and $(V,\psi)$ such that $U\cap V\neq\empty$ (i.e. the charts overlap).</p>
+<p><img alt="Defining what it means for a function to be smooth." src="/images/modules/smooth-manifolds/defining-smooth-functions.png" /></p>
+<p>Then the compositions $f\circ\inv{\phi}$ and $f\circ\inv{\psi}$ are functions from a subset of $\R^n$ to $\R$. They might be differentiable! Let&rsquo;s say both the compositions are differentiable. Then which chart should we use to define whether or not $f$ is differentiable? Does it matter which one we choose? This question is:</p>
+<p><strong>Question:</strong> Let $f:X\to\R$ be continuous, and let $(U,\phi), (V\psi)$ be overlapping charts. Is it the case that $f\circ\inv{\phi}$ is differentiable if and only if $f\circ\inv{\psi}$?
+<em>Answer:</em> No. Take, for example, $X=\R$, $f=\id$, $\phi=\id$, $\psi(x)=x^3$. Then the compositions $f\circ\phi^{-1}=\id$ and $f\circ\psi^{-1}$ which is differentiable.</p>
+<ul>
+<li>Question gives rise to two smooth structures which are not equivalent</li>
+<li>Define a smooth atlas</li>
+<li>Exercises</li>
+</ul></body>
+</html>
