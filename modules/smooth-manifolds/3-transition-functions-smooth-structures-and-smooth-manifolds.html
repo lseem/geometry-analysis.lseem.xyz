@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3. Transition functions, smooth structures, and smooth manifolds
+</title>    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/modules.css">
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.css" integrity="sha384-ZPe7yZ91iWxYumsBEOn7ieg8q/o+qh/hQpSaPow8T6BwALcXSCS6C6fSRPIAnTQs" crossorigin="anonymous">
+
+    <!-- The loading of KaTeX is deferred to speed up page rendering -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.js" integrity="sha384-ljao5I1l+8KYFXG7LNEA7DyaFvuvSCmedUf6Y6JI7LJqiu8q5dEivP2nDdFH31V4" crossorigin="anonymous"></script>
+
+    <!-- To automatically render math in text elements, include the auto-render extension: -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"
+        onload="
+        let macros = {
+            '\\inv': '{#1}^{-1}',
+            '\\norm': '\\lVert{#1}\\rVert',
+            '\\cbracket': '\\left\\{#1\\right\\}',
+            '\\rbracket': '\\left(#1\\right)',
+            '\\C': '\\mathbb{C}',
+            '\\H': '\\mathbb{H}',
+            '\\e': '\\epsilon',
+            '\\si': '\\sigma'
+        };
+        document.addEventListener('DOMContentLoaded', function() {
+            renderMathInElement(document.body, {
+                // customised options
+                // • auto-render specific keys, e.g.:
+                delimiters: [
+                    {left: '$$', right: '$$', display: true},
+                    {left: '$', right: '$', display: false},
+                ],
+                macros: macros,
+                // • rendering keys, e.g.:
+                throwOnError : false,
+            });
+        });">
+    </script>
+  </head>
+  
+</head>
+<body>
+<nav>
+<ul>
+
+                    <li><a href="/modules/smooth-manifolds/2-formal-definition-of-a-topological-manifold.html">Previous</a></li><li><a href="/modules/smooth-manifolds/">Smooth Manifolds</a></li></ul>
+</nav><hr><h1>3. Transition functions, smooth structures, and smooth manifolds</h1>
+<p>In this section we will define what it means for a topological manifold to have a smooth structure. This smooth structure allows us to define what it means for functions on the manifold to be smooth, i.e. $C^\infty$. In this way, we can arrive at a point where we can do analysis (and calculus) on a manifold.</p>
+<p>It is worth taking five minutes here to see if you can solve this problem yourself. That is, for a topological manifold $X$, think about how you could define what it means for a function $f:X\to\R$ to be smooth.</p>
+<p>Perhaps you came up with something like the following. A function $f:X\to\R$ is &ldquo;smooth&rdquo; if and only if for any chart $(U,\phi:U\to\R^n)$, the composition
+    $$ f\circ\inv{\phi}:\phi(U)\subset\R^n\to X\to\R $$
+is $C^\infty$. But in order for this to work, we need to check that this definition is independent of choice of chart $\phi$. Alas, life is not so easy:</p>
+<p><strong>Example:</strong> Consider the manifold $X=\R$, and take the two charts $(\R,\phi(x)=x^3)$ and $(\R,\psi(x)=x)$. Is the function $f(x)=x$ smooth? Well, according to $\psi$, our function $f$ is indeed &ldquo;smooth&rdquo;:
+    $$ f\circ\inv{\psi}(x) = f(x) = x, $$
+which is smooth. On the other hand, according to $\phi$, our function $f$ is <em>not</em> &ldquo;smooth&rdquo;:
+    $$ f\circ\inv{\phi}(x) = f(x^{1/3}) = x^{1/3}. $$</p>
+<p>Thus it seems that $\phi$ and $\psi$ give rise to different smooth structures. That is, $\phi$ and $\psi$ are not <em>compatible</em>.</p>
+<p><strong>Def:</strong> Two overlapping charts $(U,\phi)$ and $(V,\psi)$ on a topological
+$n$-manifold $X$ are <em>compatible</em> if and only if the composition
+    $$ \phi\circ\inv{\psi} : \psi(U\cap V)\to\phi(U\cap V) $$
+is a diffeomorphism of subsets of $\R^n$. We call the above composition a <em>transition function</em>. As a matter of convention, if the charts don&rsquo;t overlap then they are automatically compatible. Note that we actually have <em>two</em> transition functions; $\phi\circ\inv{\psi}$ and $\psi\circ\inv{\phi}$.</p>
+<p>Indeed, in the example above, the transition functions are $x\mapsto x^{1/3}$ and $x\mapsto x^3$, which are not diffeomorphisms, so those charts are indeed not compatible.</p>
+<p><img alt="Defining what it means for two charts to be compatible." src="/images/modules/smooth-manifolds/smooth-compatibility.svg" /></p>
+<p>This leads naturally to the idea of a &ldquo;smooth atlas&rdquo;, rather than just a topological one.</p>
+<p><strong>Def:</strong> A <em>smooth atlas</em> of a manifold is a collection of charts which cover the manifold, and which are (pairwise) compatible.</p>
+<p>A smooth atlas is exactly what we mean by a <em>smooth structure</em>. Note that a smooth atlas and a topological atlas are not the same. In particular, there could be many smooth atlases for a given topological atlas.</p>
+<p><strong>Example:</strong> In the previous example, each of the two charts of $\R$ actually constitute non-compatible smooth atlases $(\R,x\mapsto x)$ and $(\R,x\mapsto x^3)$, and so are different smooth structures.</p>
+<p><strong>Def:</strong> A <em>smooth manifold</em> is a topological manifold together with a choice of smooth atlas.</p>
+<p><strong>Example:</strong> Consider $S^1$ as a subset of the complex plane $\C$. Then we can create a smooth atlas of two charts, viz.
+    $$
+    \begin{align*}
+        &amp;\psi_1(e^{it}) = t &amp;\textrm{for }t\in(-\e,\pi+\e)\\
+        &amp;\psi_2(e^{it}) = t &amp;\textrm{for }t\in(\pi-\e,2\pi+\e),
+    \end{align*}
+    $$
+where $\e&gt;0$ is small (we need it less than $\pi/2$). Thus we have the transition function
+    $$ \psi_2\circ\inv{\psi_1}(t) = \begin{cases}
+            t+2\pi &amp;\textrm{for } t\in(-\e,e) \\
+            t &amp;\textrm{for } t\in(\pi-\e,\pi+\e),
+        \end{cases}$$
+which is smooth. Thus we have a collection of charts which cover $S^1$, and which are compatible. Thus we have a smooth structure for $S^1$, and so $S^1$ with this atlas is a smooth manifold.</p>
+<p><img alt="The two charts on $S^1$." src="/images/modules/smooth-manifolds/charts-on-circle.svg" /></p>
+<h2>Exercises</h2>
+<ol>
+<li>In this question we prove that $S^2$ is a smooth manifold by giving it a smooth atlas using stereographic projection. Indeed, consider $S^2=\cbracket{x\in\R^3 : \norm{x}^2 = 1}\subset\R^3$.<ol>
+<li>Consider the <em>stereographic projection</em> map $\si_N:S^2-N\to\R^2$ from the north pole $N=(0,0,1)$ depicted in the below picture. Show that
+    $$ \si_N(x,y,z) = \rbracket{\frac{x}{1-z},\frac{y}{1-z}}, $$
+    and prove that $\si_N$ is a homeomorphism.
+    <img alt="Stereographic projection from $S^2$ onto $\R^2$" src="/images/modules/smooth-manifolds/stereographic-projection.svg" /></li>
+<li>Consider now the stereographic projection map $\si_S:S^2-S\to\R^2$from the <em>south</em> pole. Show that
+    $$ \si_S(x,y,z) = \rbracket{-\frac{x}{1+z},-\frac{y}{1+z}}, $$
+    and prove that $\si_S$ is a homeomorphism.</li>
+<li>Calculate the transition map $\si_S\circ\inv{\si_N}$ (or $\si_N\circ\inv{\si_S}$), give the domain and codomain, and prove that it is a diffeomorphism.</li>
+</ol>
+</li>
+<li>In this question we compute a natural chart for $S^2$, and show that it is compatible with the smooth atlas constructed above. Indeed, consider the chart $\phi:H\to\R^2$ on the top hemisphere
+        $$H=\cbracket{(x,y,z)\in S^2 : z&gt;0}$$
+        given by $\phi(x,y,z)=(x,y)$ (see the below image).<ol>
+<li>Prove that $\phi$ is a homeomorphism onto its image, so that it is indeed a chart.</li>
+<li>Calculate the transition map $\si_S\circ\inv{\phi}$ and show that it is a diffeomorphism on it&rsquo;s domain and image of definition.</li>
+<li>Give a chart on another hemisphere (there are six in total) which overlaps with $H$ (there are only four with this property). Calculate the transition functions between this chart and $\phi$, and show that it is a diffeomorphism.
+    <img alt="The &quot;spherical cap&quot; chart is probably the first chart you'd think of for $S^2$." src="/images/modules/smooth-manifolds/chart-on-sphere.svg" /></li>
+</ol>
+</li>
+</ol></body>
+</html>

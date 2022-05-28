@@ -1,0 +1,49 @@
+/* On Maintining Vertical Rhythm:
+ * - 1rem = font-size of html element
+ * - set p, ol, ul, ... to have same font size of 1em and so same line-height of 1.5rem
+ * - fundamental: keep proportion K:= line-height*font-size = multiple of 1.5rem (c.f. example of h1)
+ * - set h1 to have font size of 2em and so line-height of 0.75rem gives K=1.5rem, but taking line-height of 1.5rem gives K=3em.
+ * */
+
+/* GENERAL */
+html { font-size: 14pt; }
+
+body {
+	font-family: "Times New Roman", "Times", serif;
+	line-height: 1.5rem;
+	max-width: 33rem;
+	margin: auto;
+	background: #fffaf5;
+	color: #33302e;
+}
+
+h1, h2 { font-family: "Helvetica", sans-serif; font-weight: bold; }
+h1 { font-size: 2rem; text-align: center; line-height: 2.25rem; padding-top: 1.75rem; padding-bottom: 2rem; }
+h2 { font-size: 1.5rem; text-align: left; padding-top: 1rem; padding-bottom: 0.5rem; }
+
+p, ol, ul, a { line-height: 1.5rem; padding-top: 0.75rem; padding-bottom: 0.75rem;}
+
+p {	word-spacing: 0.15rem; }
+
+img { display: block; width: 70%; margin-left: auto; margin-right: auto; margin-top: 0.75rem; margin-bottom: 0.75rem; }
+
+/* RECONSTRUCTION */
+
+strong { font-weight: bold; }
+em { font-style: italic; }
+
+ol { counter-reset: item; }
+ol, ul { padding-left: 2rem; padding-top: 0.75rem; padding-bottom: 0.75rem; }
+li { line-height: 1.5em; padding-left: 0.3rem; }
+/*ol>li {	}*/
+
+ol ol li::marker { content: counter(item, lower-roman) "."; text-align: right; }
+ol li::marker { content: counter(item) "."; text-align: right; }
+ol li { counter-increment: item; }
+
+ul li::marker { content: "•"; }
+
+/* SPECIFIC */
+a, a:visited { text-decoration: none; color: #44f; }
+
+.katex { font-size: 1rem; }

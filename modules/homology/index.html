@@ -4,34 +4,44 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Homology 
-</title>    <link rel="stylesheet" href="/css/modules.css">
+</title>    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/modules.css">
     
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script>
-      MathJax = {
-            tex: {
-                displayMath: [['$$', '$$']],
-                inlineMath: [['$', '$']],
-                macros: {
-                    om: '\\omega',
-                    R: '\\mathbb{R}',
-                    Z: '\\mathbb{Z}',
-                    N: '\\mathbb{N}',
-                    H: '\\mathbb{H}',
-                    empty: '\\emptyset',
-                    id: '\\mathrm{id}',
-                }
-            },
-            svg: {
-                fontCache: 'global'
-            }
-        };
-    </script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    $$
-        \newcommand{\inv}[1]{{#1}^{-1}}
-    $$
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.css" integrity="sha384-ZPe7yZ91iWxYumsBEOn7ieg8q/o+qh/hQpSaPow8T6BwALcXSCS6C6fSRPIAnTQs" crossorigin="anonymous">
 
+    <!-- The loading of KaTeX is deferred to speed up page rendering -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.js" integrity="sha384-ljao5I1l+8KYFXG7LNEA7DyaFvuvSCmedUf6Y6JI7LJqiu8q5dEivP2nDdFH31V4" crossorigin="anonymous"></script>
+
+    <!-- To automatically render math in text elements, include the auto-render extension: -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"
+        onload="
+        let macros = {
+            '\\inv': '{#1}^{-1}',
+            '\\norm': '\\lVert{#1}\\rVert',
+            '\\cbracket': '\\left\\{#1\\right\\}',
+            '\\rbracket': '\\left(#1\\right)',
+            '\\C': '\\mathbb{C}',
+            '\\H': '\\mathbb{H}',
+            '\\e': '\\epsilon',
+            '\\si': '\\sigma'
+        };
+        document.addEventListener('DOMContentLoaded', function() {
+            renderMathInElement(document.body, {
+                // customised options
+                // • auto-render specific keys, e.g.:
+                delimiters: [
+                    {left: '$$', right: '$$', display: true},
+                    {left: '$', right: '$', display: false},
+                ],
+                macros: macros,
+                // • rendering keys, e.g.:
+                throwOnError : false,
+            });
+        });">
+    </script>
+  </head>
+  
 </head>
 <h1>Homology</h1>
 <p><img alt="" src="/images/modules/smooth-manifolds/hopf-fibration.png" /></p>
